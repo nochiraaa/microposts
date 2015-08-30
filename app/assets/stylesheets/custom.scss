@@ -53,6 +53,7 @@ p {
 #logo {
 	float: left;
 	margin-right: 10px;
+	margin-bottom: 10px;
 	font-size: 1.7em;
 	color: #777;
 	text-transform: uppercase;
@@ -65,6 +66,17 @@ p {
 	color: #fff;
 	text-decoration: none;
 }
+
+.profile-wrapper {
+	text-align: left;
+	margin: 0 auto 0 auto;
+	width: 80%;
+	li {
+		text-decoration: none;
+		font-size: 20px;
+	}
+}
+
 
 /* mixins, variables, etc. */
 
@@ -104,3 +116,4 @@ input {
     color: $state-danger-text;
   }
 }
+
