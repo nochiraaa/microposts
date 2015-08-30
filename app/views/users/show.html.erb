@@ -2,4 +2,11 @@
     <%= gravatar_for @user %>
     
     <%= @user.name %>
+    
+    <ul>
+        <li>年齢：<%= @user.age %></li>
+        <li>プロフィール：<%= @user.profile %></li>
+        <li>趣味：<%= @user.hobby %></li>
+    </ul>
+    <div><%= link_to "edit profile", edit_user_path(@user) %></div>
 </h1>

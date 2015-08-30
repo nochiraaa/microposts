@@ -11,6 +11,26 @@ class User < ActiveRecord::Base
         format: {with: VALID_EMAIL_REGEX},
         uniqueness: {case_sensitive: false }
     
+    validates :profile,
+        presence: true,
+        length:{maximum:200}
+    
+    validates :age,
+        numericality: { 
+                        only_integer: true, 
+                        greater_than_or_equal_to: 0
+                    }, 
+        length: {
+                minimum:1, 
+                maximum:3
+            
+        }, 
+        presence: true
+    
+    validates :hobby,
+        presence: true,
+        length: {maximum: 200 }
+    
     has_secure_password
     
 end
