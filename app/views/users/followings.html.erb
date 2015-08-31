@@ -7,12 +7,38 @@
             </h1>        
         </section>
     </aside>
-    <div class="col-md-8">
-        <%= @user.following_relationships.following_users.each do |following| %>
-            <%= gravatar_for following %>
-            <%= following.name %>
-            <%= render 'follow_form' if logged_in? %>
-        <% end %>
+    <div class="col-md-8 followings-wrapper">
+        <h2><%= @user.name %>のフォロー</h2>
+        <ul>
+            <% @user.following_users.each do |following| %>
+                <li class="clearfix">
+                    <div class="followings-avatar clearfix">
+                        <%= gravatar_for following %>
+                    </div>
+                    <div class="followings-name">
+                        <%= following.name %>
+                    </dis>
+                    <!--
+                    <div id="follow_form">
+                        <% if current_user.following?(following) %>
+                            <%= 
+                                form_for(current_user.following_relationships.find_by(followed_id: following.id), html: {method: :delete}, remote: true) do |f| 
+                            %>
+                            <%= f.submit "UnFollow", class: "btn" %>
+                            <% end %>
+                        <% else %>
+                            <%= form_for(current_user.following_relationships.build, remote: true) do |f| %>
+                                <div>
+                                    <%= hidden_field_tag :followed_id, following.id %>
+                                </div>
+                                <%= f.submit "Follow", class: "btn btn-primary" %>
+                            <% end %>
+                        <% end %>
+                    </div>
+                    -->
+                </li>
+            <% end %>
+        </ul>
     </div>
     <ul class="row profile-wrapper">
         <li>年齢：<%= @user.age %></li>
@@ -20,6 +46,14 @@
         <li>趣味：<%= @user.hobby %></li>
     </ul>
     <% if(@user == current_user) %>
-    <div><%= link_to "edit profile", edit_user_path(current_user) %></div>
+        <div>
+            <%= link_to "edit profile", edit_user_path(current_user) %>
+        </div>
     <% end %>
+    <div>
+        <%= link_to "followings", followings_path(@user.id) %>
+    </div>
+    <div>
+        <%= link_to "followers", followers_path(@user.id) %>
+    </div>
 </div>

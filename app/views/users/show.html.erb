@@ -26,4 +26,6 @@
     <% if(@user == current_user) %>
     <div><%= link_to "edit profile", edit_user_path(current_user) %></div>
     <% end %>
+    <div><%= link_to "followings", followings_path(@user.id) %></div>
+    <div><%= link_to "followers", followers_path(@user.id) %></div>
 </div>

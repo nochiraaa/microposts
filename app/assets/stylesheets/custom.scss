@@ -7,6 +7,27 @@ body {
 	padding-top: 60px;
 }
 
+/* clearfix */
+.clearFix:after {
+    content: "."; /* 新しい要素を作る */
+    display: block; /* ブロックレベル要素に */
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearFix {
+    min-height: 1px;
+}
+
+* html .clearFix {
+    height: 1px;
+    /*￥*/ /*/
+  height: auto;
+  overflow: hidden;
+  /**/
+}
+
 section {
 	overflow:auto;
 }
@@ -198,5 +219,24 @@ span.picture {
   margin-top: 10px;
   input {
     border: 0;
+  }
+}
+
+.followings-wrapper {
+  ul{
+    li{
+      width: 100%;
+      list-style-type: none;
+      margin-bottom: 10px;
+      .followings-avatar {
+        width: 20%;
+        float: left;
+      }
+      
+      .followings-name {
+        width: 80%;
+        float: left;
+      }
+    }
   }
 }
