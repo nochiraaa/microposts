@@ -13,23 +13,29 @@ class User < ActiveRecord::Base
     
     
     validates :profile,
-        presence: true,
+        presence: true, on: :update,
         length:{maximum:200}
     
     validates :age,
+        presence: true, on: :update,
         numericality: { 
                         only_integer: true, 
                         greater_than_or_equal_to: 0
                     }, 
         length: {
-                minimum:1, 
-                maximum:3
-        }, 
-        presence: true
+                minimum: 1,
+                maximum: 3
+        }
     
     validates :hobby,
-        presence: true,
+        presence: true, on: :update,
         length: { maximum: 200 }
+        
+    validates :hobby,
+        presence: true, on: :update,
+        length: {
+            maximum: 200 
+        }
     
     has_secure_password
     has_many :microposts
