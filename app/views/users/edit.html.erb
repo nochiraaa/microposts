@@ -7,6 +7,14 @@
 <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <li>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </li>
+    <li>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+    </li>>
+    <li>
         <%= f.label :profile %>
         <%= f.text_field :profile %>
     </li>
@@ -17,6 +25,14 @@
     <li>
         <%= f.label :hobby %>
         <%= f.text_field :hobby %>
+    </li>
+    <li>
+        <%= f.label :password %><div style="margin-bottom:10px;">if you want to change your password, please input it.</div>
+        <%= f.password_field :password %>
+    </li>
+    <li>
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %>
     </li>
     <%= f.submit class: "btn btn-sm btn-primary" %>
 <% end %>
