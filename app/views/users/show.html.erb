@@ -8,6 +8,7 @@
         </section>
     </aside>
     <div class"=col-md-8">
+        <%= render 'follow_form' if logged_in? %>
         <% if @user.microposts.any? %>
             <h3>
                 Microposts (<%= @user.microposts.count %>)
@@ -22,5 +23,7 @@
         <li>プロフィール：<%= @user.profile %></li>
         <li>趣味：<%= @user.hobby %></li>
     </ul>
-    <div><%= link_to "edit profile", edit_user_path(@user) %></div>
+    <% if(@user == current_user) %>
+    <div><%= link_to "edit profile", edit_user_path(current_user) %></div>
+    <% end %>
 </div>
