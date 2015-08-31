@@ -12,24 +12,24 @@ class User < ActiveRecord::Base
         uniqueness: {case_sensitive: false }
     
     validates :profile,
-        presence: true,
+        presence: true, on: :update,
         length:{maximum:200}
     
     validates :age,
+        presence: true, on: :update,
         numericality: { 
                         only_integer: true, 
                         greater_than_or_equal_to: 0
                     }, 
         length: {
-                minimum:1, 
                 maximum:3
-            
-        }, 
-        presence: true
-    
+        } 
+        
     validates :hobby,
-        presence: true,
-        length: {maximum: 200 }
+        presence: true, on: :update,
+        length: {
+            maximum: 200 
+        }
     
     has_secure_password
     
