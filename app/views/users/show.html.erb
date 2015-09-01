@@ -6,26 +6,32 @@
                 <%= @user.name %>
             </h1>        
         </section>
+        <ul class="row profile-wrapper">
+            <li>年齢：<%= @user.age %></li>
+            <li>プロフィール：<%= @user.profile %></li>
+            <li>趣味：<%= @user.hobby %></li>
+        </ul>
+        <% if(@user == current_user) %>
+            <div>
+                <%= link_to "edit profile", edit_user_path(current_user) %>
+            </div>
+        <% end %>
+        <div>
+            <%= link_to "followings", followings_path(@user.id) %>
+        </div>
+        <div>
+            <%= link_to "followers", followers_path(@user.id) %>
+        </div>
     </aside>
-    <div class"=col-md-8">
+    <div class="col-md-8">
         <%= render 'follow_form' if logged_in? %>
         <% if @user.microposts.any? %>
             <h3>
                 Microposts (<%= @user.microposts.count %>)
-             </h3>
-             <ol class="microposts">
+            </h3>
+            <ol class="microposts">
                 <%= render @microposts %>
-             </ol>
+            </ol>
         <% end %>
     </div>
-    <ul class="row profile-wrapper">
-        <li>年齢：<%= @user.age %></li>
-        <li>プロフィール：<%= @user.profile %></li>
-        <li>趣味：<%= @user.hobby %></li>
-    </ul>
-    <% if(@user == current_user) %>
-    <div><%= link_to "edit profile", edit_user_path(current_user) %></div>
-    <% end %>
-    <div><%= link_to "followings", followings_path(@user.id) %></div>
-    <div><%= link_to "followers", followers_path(@user.id) %></div>
 </div>

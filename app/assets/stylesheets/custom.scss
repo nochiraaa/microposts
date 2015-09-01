@@ -91,7 +91,8 @@ p {
 .profile-wrapper {
 	text-align: left;
 	margin: 0 auto 0 auto;
-	width: 80%;
+	width: 100%;
+  list-style-type: none;
 	li {
 		text-decoration: none;
 		font-size: 20px;
@@ -228,12 +229,12 @@ span.picture {
       width: 100%;
       list-style-type: none;
       margin-bottom: 10px;
-      .followings-avatar {
+      .avatar {
         width: 20%;
         float: left;
       }
       
-      .followings-name {
+      .name {
         width: 80%;
         float: left;
       }
